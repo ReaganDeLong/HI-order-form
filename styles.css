@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} 
+
+.main-container {
+  max-width: 1400px;
+  max-height: 2200px;
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.info-sections {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+
+}
+
+.client-info,
+.order-info,
+.property-info,
+.buyer-agent,
+.selling-agent {
+  border: 1px solid gray;
+  padding: 15px;
+
+}
+
+
+.logo-container {
+  height: 25%;
+  width: 75%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: center;
+  margin-top: -30px;
+}
+
+.logo-container img {
+  height: 50%;
+  width: 50%;
+}
+
+ul li {
+  list-style: none;
+}
