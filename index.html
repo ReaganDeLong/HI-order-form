@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="main-container">
+
+    <div class="logo-container">
+      <img src="" alt="">
+    </div>
+
+    <div class="client-info">
+      <h1>Client Info</h1>
+      <form>
+        <label for="name0">First & Last Name</label><input type="text" class="answer" id="name0" name="name0">
+        <label for="email">Email</label><input type="email" class="answer" id="email">
+        <label for="number">Cell Phone #</label> <input type="tel" class="answer" id="number">
+      </form>
+
+      <div class="order-info">
+        <h1>Order Info</h1>
+        <form>
+          <label for="order-date">Order Date</label><input type="date" id="order-date" class="answer">
+          <label for="inspection-date">Inspection Date</label><input type="date" id="inspection-date" class="answer">
+          <label for="inspection-time">Inspection Time</label><input type="time" id="inspection-time" class="answer">
+          <label for="order-taker">Order Taken By</label><input type="text" id="order-taker" class="answer">
+          <label for="referral">Referral Source</label><select class="answer" id="referral">
+            <option value="prev">Previous Customer</option>
+            <option value="agent">Agent</option>
+            <option value="other-prev">Referred by previous customer</option>
+            <option value="other">Other</option>
+          </select>
+          <label for="attendance">Who will be at the inspection</label><input type="text" id="attendance" class="answer">
+          <label for="authorized">Inspection Authorized By</label><select id="authorized" class="answer">
+            <option value="agent">Agent</option>
+            <option value="client">Client</option>
+            <option value="other">Other</option>
+          </select>
+        </form>
+      </div>
+
+      <div class="property-info">
+        <h1>Property Info</h1>
+        <form>
+          <label for="address">Address</label><input type="text" id="address" class="answer">
+          <label for="city">City</label><input type="text" id="city" class="answer">
+          <label for="zip">Zip Code</label><input type="number" id="zip" class="answer">
+          <label for="subdivision">Subdivision/Neighborhood</label><input type="text" id="subdivision" class="answer">
+          <label for="lockbox">CBS / Lockbox Code</label><input type="number" id="lockbox" class="answer">
+          <label for="age">Year Built</label><input type="number" id="age" class="answer">
+          <label for="home-footage">Square Footage (include unfinished areas)</label><input type="number" id="home-footage" class="answer">
+          <label for="bedrooms"># of Bedrooms</label><select id="bedrooms" class="answer">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <label for="bathrooms"># of Bathrooms</label><select id="bathrooms" class="answer">
+            <option value="0">0</option>
+            <option value=".5">.5</option>
+            <option value="1">1</option>
+            <option value="1.5">1.5</option>
+            <option value="2">2</option>
+            <option value="2.5">2.5</option>
+            <option value="3">3</option>
+            <option value="3.5">3.5</option>
+            <option value="4">4</option>
+            <option value="4.5">4.5</option>
+            <option value="5">5</option>
+            <option value="5.5">5.5</option>
+            <option value="6">6</option>
+            <option value="6.5">6.5</option>
+            <option value="7">7</option>
+            <option value="7.5">7.5</option>
+            <option value="8">8</option>
+            <option value="8.5">8.5</option>
+            <option value="9">9</option>
+            <option value="9.5">9.5</option>
+            <option value="10">10</option>
+          </select>
+          <label for="hvac"># of HVAC systems</label><select id="hvac" class="answer">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <label for="kitchens"># of Kitchens</label><select id="kitchens" class="answer">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <label for="price">Sales Price</label><input type="number" id="price" class="answer">
+          <label for="crawlspace">Crawlspace?<select class="answer" id="crawlspace">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label for="radon">Radon Test?</label><select id="radon" class="answer">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label for="other-areas">Other areas to be inspected (shed, workshop, barn, etc.)</label><input type="text" id="other-areas" class="answer">
+          <label for="add-fee">Additional fee for additional area</label><input type="number" id="add-fee" class="answer">
+        </form>
+      </div>
+
+      <div class="fee">
+        <p>Inspection Fee Only</p><span class="inspection-fee"></span>
+        <p>Total Fee (Inspection + Radon + Other)</p><span class="total-fee"></span>
+        <button class="override">Override Fee</button>
+        <p>Fee override is optional. ONLY use this if price needs to be manually adjusted due to weird circumstances, or if this calculator isn't working correctly. This is the TOTAL fee, so include radon, additional areas, etc.</p>
+
+      </div>
+
+      <div class="buyer-agent">
+        <h1>Buyer's Agent Info</h1>
+        <form>
+          <label for="ba-name">Name</label><input type="text" id="ba-name" class="answer">
+          <label for="ba-phone">Cell</label><input type="tel" id="ba-phone" class="answer">
+          <label for="ba-email">Email</label><input type="email" id="ba-email" class="answer">
+        </form>
+      </div>
+
+      <div class="selling-agent">
+        <h1>Buyer's Agent Info</h1>
+        <form>
+          <label for="sa-name">Name</label><input type="text" id="sa-name" class="answer">
+          <label for="sa-phone">Cell</label><input type="tel" id="sa-phone" class="answer">
+          <label for="sa-email">Email</label><input type="email" id="sa-email" class="answer">
+          <label for="additional-info">Additional Info (gate key, complicated directions, etc.)</label><input type="text" id="additional-info" class="answer">
+        </form>
+      </div>
+
+    </div>
+  </div>
+  
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
