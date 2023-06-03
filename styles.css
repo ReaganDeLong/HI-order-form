@@ -1,5 +1,5 @@
 * {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
 } 
@@ -7,27 +7,30 @@
 .main-container {
   max-width: 1400px;
   max-height: 2200px;
-  border: 1px solid black;
   padding: 15px;
 }
 
 .info-sections {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 15px;
-
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  grid-gap: 10px;
 }
 
 .client-info,
 .order-info,
 .property-info,
 .buyer-agent,
-.selling-agent {
+.selling-agent,
+.fee {
   border: 1px solid gray;
+  border-radius: 10px;
   padding: 15px;
-
+  width: 80%;
 }
 
+form {
+  text-align: center;
+}
 
 .logo-container {
   height: 25%;
@@ -40,10 +43,74 @@
 }
 
 .logo-container img {
-  height: 50%;
-  width: 50%;
+  height: 70%;
+  width: 70%;
+  z-index: -1;
 }
 
 ul li {
   list-style: none;
+}
+
+input,
+label,
+select {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  margin-left: 10px;
+
+}
+
+
+label {
+  display: inline-block;
+  text-align: right;
+  width: 100%;
+}
+
+input {
+  width: 40%;
+  height: 30px;
+  flex: 0 0 200px;
+  margin-left: 10px;
+  display: inline-block;
+  text-align: right;
+}
+
+.client-info input,
+.buyer-agent input,
+.selling-agent input {
+  width: 65%;
+}
+
+label[for="name1"] {
+  margin-top: 20px;
+}
+
+hr {
+  width: 50%;
+}
+
+h1 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.fee {
+  height: 50%;
+  font-size: 1.3rem;
+}
+
+.override {
+  margin-top: 20%;
+  font-size: 1.3rem;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: orange;
+  color: black;
+  cursor: pointer;
+}
+
+.red {
+  border: 3px solid red;
 }
