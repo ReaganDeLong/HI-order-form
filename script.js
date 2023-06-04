@@ -60,6 +60,60 @@ function validateClientFunction() {
 };
 
 //ORDER INFO SECTION
+const orderDate = document.getElementById('order-date');
+const inspectionDate = document.getElementById('inspection-date');
+const inspectionTime = document.getElementById('inspection-time');
+const orderTaker = document.getElementById('order-taker');
+const referral = document.getElementById('referral');
+const attendance = document.getElementById('attendance');
+const authorizedBy = document.getElementById('authorized');
+const confirmOrder = document.querySelector('.confirm-order');
+const orderRed = document.querySelector('.order-red')
+
+confirmOrder.addEventListener('click', confirmOrderFunction);
+
+function confirmOrderFunction() {
+
+    if (orderDate.value === "") {
+        orderDate.classList.add('red');
+    } else {
+        orderDate.classList.remove('red');
+    };
+    
+    if (inspectionDate.value === "") {
+        inspectionDate.classList.add('red');
+    } else {
+        inspectionDate.classList.remove('red');
+    };
+
+    if (inspectionTime.value === "") {
+        inspectionTime.classList.add('red');
+    } else {
+        inspectionTime.classList.remove('red');
+    };
+
+    if (orderTaker.value === "") {
+        orderTaker.classList.add('red');
+    } else {
+        orderTaker.classList.remove('red');
+    };
+
+    if (attendance.value === "") {
+        attendance.classList.add('red');
+    } else {
+        attendance.classList.remove('red');
+    };
+
+    if (orderDate.value === ""
+    || inspectionDate.value === ""
+    || inspectionTime.value === ""
+    || orderTaker.value === ""
+    || attendance.value === "") {
+    orderRed.style.visibility = "visible";
+} else {
+    orderRed.style.visibility = "hidden";
+};
+}
 
 //BUYER'S AGENT SECTION
 
