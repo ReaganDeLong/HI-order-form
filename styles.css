@@ -58,9 +58,7 @@ select {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   margin-left: 10px;
-
 }
-
 
 label {
   display: inline-block;
@@ -113,4 +111,34 @@ h1 {
 
 .red {
   border: 3px solid red;
+}
+
+.confirm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.confirm:hover {
+  background-color: lightgreen;
+}
+
+.red-text {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  visibility: hidden;
+}
+
+#other-source,
+#other-source-label,
+#other-authorized,
+#other-authorized-label {
+  display: none;
 }
