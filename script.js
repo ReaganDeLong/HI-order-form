@@ -59,6 +59,7 @@ function validateClientFunction() {
 
 };
 
+
 //ORDER INFO SECTION
 const orderDate = document.getElementById('order-date');
 const inspectionDate = document.getElementById('inspection-date');
@@ -110,14 +111,111 @@ function confirmOrderFunction() {
     || orderTaker.value === ""
     || attendance.value === "") {
     orderRed.style.visibility = "visible";
-} else {
+    } else {
     orderRed.style.visibility = "hidden";
-};
+    };
+
+    if (otherSourceInput.style.display === 'inline-block'
+    && otherSourceInput.value === "") {
+        otherSourceInput.classList.add('red');
+    }
+
+    if (otherAuthorized.style.display === 'inline-block'
+    && otherAuthorized.value === "") {
+        otherAuthorized.classList.add('red');
+    }
 }
 
+const otherSourceLabel = document.getElementById('other-source-label');
+const otherSourceInput = document.getElementById('other-source');
+const otherAuthorized = document.getElementById('other-authorized');
+const otherAuthorizedLabel = document.getElementById('other-authorized-label');
+
+function toggleAuth() {
+    if (authorizedBy.value === "other") {
+        otherAuthorized.style.display = "inline-block";
+        otherAuthorizedLabel.style.display = "inline-block"
+    } else {
+        otherAuthorized.style.display = "none";
+        otherAuthorizedLabel.style.display = "none";
+    }
+};
+
+function toggleReferral() {
+    if (referral.value === "other") {
+        otherSourceInput.style.display = "inline-block";
+        otherSourceLabel.style.display = "inline-block";
+    } else {
+        otherSourceInput.style.display = "none";
+        otherSourceLabel.style.display = "none";
+    }
+};
+
+authorizedBy.addEventListener('change', toggleAuth);
+referral.addEventListener('change', toggleReferral)
+
 //BUYER'S AGENT SECTION
+const emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const numberPattern = /^\+?[0-9]{1,4}-?[0-9]{3,4}-?[0-9]{4,}$/;
+
+const phoneBA = document.getElementById('ba-phone');
+const emailBA = document.getElementById('ba-email');
+const confirmBA = document.querySelector('.confirm-ba');
+const redBA = document.querySelector('.ba-red');
+
+confirmBA.addEventListener('click', confirmBAFunction);
+
+function confirmBAFunction() {
+    if (numberPattern.test(phoneBA.value)) {
+        phoneBA.classList.remove('red');
+    } else {
+        phoneBA.classList.add('red')
+    };
+
+    if (emailPattern.test(emailBA.value)) {
+        emailBA.classList.remove('red');
+    } else {
+        emailBA.classList.add('red');
+    };
+
+    if (!emailPattern.test(emailBA.value) 
+    || !numberPattern.test(phoneBA.value)) {
+        redBA.style.visibility = 'visible';
+    } else {
+        redBA.style.visibility = 'hidden';
+    }
+};
 
 //SELLER'S AGENT SECTION
+const phoneSA = document.getElementById('sa-phone');
+const emailSA = document.getElementById('sa-email');
+const confirmSA = document.querySelector('.confirm-sa');
+const redSA = document.querySelector('.sa-red')
+
+confirmSA.addEventListener('click', confirmSAFunction);
+
+function confirmSAFunction() {
+    if (numberPattern.test(phoneSA.value)) {
+        phoneSA.classList.remove('red');
+    } else {
+        phoneSA.classList.add('red')
+    };
+
+    if (emailPattern.test(emailSA.value)) {
+        emailSA.classList.remove('red');
+    } else {
+        emailSA.classList.add('red');
+    };
+
+    if (!emailPattern.test(emailSA.value) 
+    || !numberPattern.test(phoneSA.value)) {
+        redSA.style.visibility = 'visible';
+    } else {
+        redSA.style.visibility = 'hidden';
+    }
+};
+
+
 
 //PROPERTY INFO SECTION
 
