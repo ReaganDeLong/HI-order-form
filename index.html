@@ -29,7 +29,7 @@
             </label></li>
             <hr>
             <li><label for="name1">
-              Client #2 Name<input type="text" class="answer" id="name1">
+              Client #2 Name (opt.)<input type="text" class="answer" id="name1">
             </label></li>
             <li><label for="email1">
               Email<input type="email" class="answer" id="email1">
@@ -39,7 +39,8 @@
             </label></li>
           </ul>
         </form>
-        <button class="validate validate-client">Validate Client Info</button>
+        <button class="confirm confirm-client">Confirm Client Info</button>
+        <span class="client-red red-text">Please enter a valid input in the highlighted areas</span>
       </div>
 
         <div class="order-info">
@@ -64,6 +65,8 @@
               <option value="other-prev">Referred by previous customer</option>
               <option value="other">Other</option>
             </select>
+          </label><label for="other-source" id="other-source-label">Source?
+            <input type="text" class="answer" id="other-source">
           </label></li>
             <li><label for="attendance">Who will be at the inspection
               <input type="text" id="attendance" class="answer">
@@ -74,8 +77,13 @@
               <option value="client">Client</option>
               <option value="other">Other</option>
             </select>
+          </label>
+          <label for="other-authorized-label" id="other-authorized-label">Who authorized?
+            <input type="text" class="answer" id="other-authorized">
           </label></li>
           </ul></form>
+          <button class="confirm confirm-order">Confirm Order Info</button>
+          <span class="order-red red-text">Please enter a valid input in the highlighted areas</span>
         </div>
 
         <div class="buyer-agent">
@@ -91,6 +99,8 @@
               <input type="email" id="ba-email" class="answer">
             </label></li>
           </ul></form>
+          <button class="confirm confirm-ba">Confirm Buyer's Agent Info</button>
+          <span class="ba-red red-text">Please enter a valid input in the highlighted areas</span>
         </div>
 
         <div class="selling-agent">
@@ -109,6 +119,8 @@
                 <input type="text" id="additional-info" class="answer">
               </label></div>
           </form>
+          <button class="confirm confirm-sa">Confirm Seller's Agent Info</button>
+          <span class="sa-red red-text">Please enter a valid input in the highlighted areas</span>
         </div>
 
         <div class="property-info">
@@ -216,6 +228,7 @@
               <input type="number" id="add-fee" class="answer">
             </label></li>
           </ul></form>
+          <button class="confirm confirm-property">Confirm Property Info</button>
         </div>
 
         <div class="fee">
