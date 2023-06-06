@@ -19,23 +19,23 @@
         <form>
           <ul>
             <li><label for="name0">
-              Client #1 Name<input type="text" class="answer" id="name0">
+              Client #1 Name<input type="text" class="answer" id="name0" autocomplete="off">
             </label></li>
             <li><label for="email0">
-              Email<input type="email" class="answer" id="email0">
+              Email<input type="email" class="answer" id="email0" autocomplete="off">
             </label></li>
             <li><label for="number0">
-              Phone number<input type="tel" class="answer" id="number0">
+              Phone number<input type="tel" class="answer" id="number0" autocomplete="off">
             </label></li>
             <hr>
             <li><label for="name1">
-              Client #2 Name (opt.)<input type="text" class="answer" id="name1">
+              Client #2 Name (opt.)<input type="text" class="answer" id="name1" autocomplete="off">
             </label></li>
             <li><label for="email1">
-              Email<input type="email" class="answer" id="email1">
+              Email<input type="email" class="answer" id="email1" autocomplete="off">
             </label></li>
             <li><label for="number1">
-              Phone Number<input type="tel" class="answer" id="number1">
+              Phone Number<input type="tel" class="answer" id="number1" autocomplete="off">
             </label></li>
           </ul>
         </form>
@@ -56,7 +56,7 @@
               <input type="time" id="inspection-time" class="answer">
             </label></li>
             <li><label for="order-taker">Order Taken By
-              <input type="text" id="order-taker" class="answer">
+              <input type="text" id="order-taker" class="answer" autocomplete="off">
             </label></li>
             <li><label for="referral">Referral Source
               <select class="answer" id="referral">
@@ -69,17 +69,17 @@
             <input type="text" class="answer" id="other-source">
           </label></li>
             <li><label for="attendance">Who will be at the inspection
-              <input type="text" id="attendance" class="answer">
+              <input type="text" id="attendance" class="answer" autocomplete="off">
             </label></li>
             <li><label for="authorized">Inspection Authorized By
-              <select id="authorized" class="answer">
+              <select id="authorized" class="answer" autocomplete="off">
               <option value="agent">Agent</option>
               <option value="client">Client</option>
               <option value="other">Other</option>
             </select>
           </label>
-          <label for="other-authorized-label" id="other-authorized-label">Who authorized?
-            <input type="text" class="answer" id="other-authorized">
+          <label for="other-authorized" id="other-authorized-label">Who authorized?
+            <input type="text" class="answer" id="other-authorized" autocomplete="off">
           </label></li>
           </ul></form>
           <button class="confirm confirm-order">Confirm Order Info</button>
@@ -90,13 +90,13 @@
           <h1>Buyer's Agent Info</h1>
           <form><ul>
             <li><label for="ba-name">Name
-              <input type="text" id="ba-name" class="answer">
+              <input type="text" id="ba-name" class="answer" autocomplete="off">
             </label></li>
             <li><label for="ba-phone">Phone Number
-              <input type="tel" id="ba-phone" class="answer">
+              <input type="tel" id="ba-phone" class="answer" autocomplete="off">
             </label></li>
             <li><label for="ba-email">Email
-              <input type="email" id="ba-email" class="answer">
+              <input type="email" id="ba-email" class="answer" autocomplete="off">
             </label></li>
           </ul></form>
           <button class="confirm confirm-ba">Confirm Buyer's Agent Info</button>
@@ -107,16 +107,16 @@
           <h1>Seller's Agent Info</h1>
           <form>
               <div class="block"><label for="sa-name">Name
-                <input type="text" id="sa-name" class="answer">
+                <input type="text" id="sa-name" class="answer" autocomplete="off">
               </label></div>
               <div class="block"><label for="sa-phone">Phone Number
-                <input type="tel" id="sa-phone" class="answer">
+                <input type="tel" id="sa-phone" class="answer" autocomplete="off">
               </label></div>
               <div class="block"><label for="sa-email">Email
-                <input type="email" id="sa-email" class="answer">
+                <input type="email" id="sa-email" class="answer" autocomplete="off">
               </label></div>
-              <div class="block"><label for="additional-info">Additional Info (gate key, directions, etc.)
-                <input type="text" id="additional-info" class="answer">
+              <div class="block"><label for="additional-info" autocomplete="off">Additional Info (gate key, directions, etc.)
+                <textarea id="additional-info" class="answer"></textarea>
               </label></div>
           </form>
           <button class="confirm confirm-sa">Confirm Seller's Agent Info</button>
@@ -127,25 +127,33 @@
           <h1>Property Info</h1>
           <form><ul>
             <li><label for="address">Address
-              <input type="text" id="address" class="answer">
+              <input type="text" id="address" class="answer" autocomplete="off">
             </label></li>
             <li><label for="city">City
-              <input type="text" id="city" class="answer">
+              <input type="text" id="city" class="answer" autocomplete="off">
             </label></li>
             <li><label for="zip">Zip Code
-              <input type="number" id="zip" class="answer">
+              <input type="text" id="zip" class="answer" maxlength="5" autocomplete="off">
             </label></li>
             <li><label for="subdivision">Neighborhood
-              <input type="text" id="subdivision" class="answer">
+              <input type="text" id="subdivision" class="answer" autocomplete="off">
             </label></li>
-            <li><label for="lockbox">CBS / Lockbox
-              <input type="text" id="lockbox" class="answer">
+            <li><label for="access">Access
+              <select id="access" class="answer">
+                <option value="lockbox">CBS/Lockbox</option>
+                <option value="sa-access">Seller's Agent</option>
+                <option value="ba-access">Buyer's Agent</option>
+                <option value="homeowner">Homeowner/Occupant</option>
+                <option value="other">Other</option>
+              </select>
+              <input type="text" class="describe-other" id="describe-other" placeholder="Describe Other Access">
+              <input type="text" class="lockbox-code" id="lockbox-code" placeholder="CBS/Lockbox Code">
             </label></li>
             <li><label for="age">Year Built
-              <input type="number" id="age" class="answer">
+              <input type="text" id="age" class="answer" maxlength="4" autocomplete="off">
             </label></li>
             <li><label for="home-footage">Square Footage (include unfinished)
-              <input type="number" id="home-footage" class="answer">
+              <input type="text" id="home-footage" class="answer" autocomplete="off">
             </label></li>
             <li><label for="bedrooms"># of Bedrooms
               <select id="bedrooms" class="answer">
@@ -208,9 +216,10 @@
             </select>
           </label></li>
             <li><label for="price">Sales Price
-              <input type="number" id="price" class="answer">
+              <input type="text" id="price" class="answer" autocomplete="off">
             </label></li>
-            <li><label for="crawlspace">Crawlspace?<select class="answer" id="crawlspace">
+            <li><label for="crawlspace">Crawlspace?
+              <select class="answer" id="crawlspace">
               <option value="no">No</option>
               <option value="yes">Yes</option>
             </select>
@@ -222,13 +231,15 @@
             </select>
           </label></li>
             <li><label for="other-areas">Additional area? Shed, workshop, barn, etc.
-              <input type="text" id="other-areas" class="answer">
+              <textarea id="other-areas" class="answer" autocomplete="off"></textarea>
             </label></li>
             <li><label for="add-fee">Additional Area Fee
-              <input type="number" id="add-fee" class="answer">
+              <input type="text" id="add-fee" class="answer" autocomplete="off">
             </label></li>
           </ul></form>
           <button class="confirm confirm-property">Confirm Property Info</button>
+          <span class="property-red red-text">Please enter a valid input in the highlighted areas</span>
+
         </div>
 
         <div class="fee">
