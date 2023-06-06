@@ -1,12 +1,13 @@
 //CLIENT INFO SECTION
 
 const confirmClient = document.querySelector('.confirm-client');
+const clientName0 = document.getElementById('name0');
 const clientEmail0 = document.getElementById('email0');
 const clientEmail1 = document.getElementById('email1');
 const clientNumber0 = document.getElementById('number0');
 const clientNumber1 = document.getElementById('number1');
 const clientRed = document.querySelector('.client-red');
-const clientName1 = document.querySelector('.name1');
+const clientName1 = document.getElementById('name1');
 
 
 confirmClient.addEventListener('click', validateClientFunction);
@@ -30,14 +31,15 @@ function validateClientFunction() {
 
     let number0 = clientNumber0.value; 
     let number1 = clientNumber1.value;
-    let numberPattern = /^\+?[0-9]{1,4}-?[0-9]{3,4}-?[0-9]{4,}$/;
+    let numberPattern = /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
     if (numberPattern.test(number0)) {
         clientNumber0.classList.remove('red');
     } else {
         clientNumber0.classList.add('red')
     };
 
-    if (numberPattern.test(number1) || number1 === "") {
+    if (numberPattern.test(number1) 
+    || number1 === "") {
         clientNumber1.classList.remove('red');
         clientRed.style.visibility = 'hidden';
 
@@ -47,7 +49,15 @@ function validateClientFunction() {
 
     };
 
-    if (!emailPattern.test(email0) || !numberPattern.test(number0)) {
+    if (clientName0.value === "") {
+        clientName0.classList.add('red');
+    } else {
+        clientName0.classList.remove('red');
+    };
+
+    if (!emailPattern.test(email0) 
+    || !numberPattern.test(number0)
+    || clientName0.value === "") {
         clientRed.style.visibility = 'visible';
     } else if (number1 !== "" && !numberPattern.test(number1)) {
         clientRed.style.visibility = 'visible';
@@ -56,7 +66,6 @@ function validateClientFunction() {
     } else {
         clientRed.style.visibility = 'hidden';
     }
-
 };
 
 
@@ -70,6 +79,10 @@ const attendance = document.getElementById('attendance');
 const authorizedBy = document.getElementById('authorized');
 const confirmOrder = document.querySelector('.confirm-order');
 const orderRed = document.querySelector('.order-red')
+const today = new Date().toISOString().split('T')[0];
+
+orderDate.setAttribute('min', today);
+inspectionDate.setAttribute('min', today);
 
 confirmOrder.addEventListener('click', confirmOrderFunction);
 
@@ -118,12 +131,12 @@ function confirmOrderFunction() {
     if (otherSourceInput.style.display === 'inline-block'
     && otherSourceInput.value === "") {
         otherSourceInput.classList.add('red');
-    }
+    };
 
     if (otherAuthorized.style.display === 'inline-block'
     && otherAuthorized.value === "") {
         otherAuthorized.classList.add('red');
-    }
+    };
 }
 
 const otherSourceLabel = document.getElementById('other-source-label');
@@ -156,7 +169,7 @@ referral.addEventListener('change', toggleReferral)
 
 //BUYER'S AGENT SECTION
 const emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-const numberPattern = /^\+?[0-9]{1,4}-?[0-9]{3,4}-?[0-9]{4,}$/;
+const numberPattern = /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
 
 const phoneBA = document.getElementById('ba-phone');
 const emailBA = document.getElementById('ba-email');
@@ -215,9 +228,146 @@ function confirmSAFunction() {
     }
 };
 
-
-
 //PROPERTY INFO SECTION
+const address = document.getElementById('address');
+const city = document.getElementById('city');
+const zip = document.getElementById('zip');
+const subdivision = document.getElementById('subdivision');
+const access = document.getElementById('access');
+const yearBuilt = document.getElementById('age');
+const footage = document.getElementById('home-footage');
+const beds = document.getElementById('bedrooms');
+const baths = document.getElementById('bathrooms');
+const hvac = document.getElementById('hvac');
+const kitchens = document.getElementById('kitchens');
+const price = document.getElementById('price');
+const crawl = document.getElementById('crawlspace');
+const radon = document.getElementById('radon');
+const otherAreas = document.getElementById('other-areas');
+const additionalFee = document.getElementById('add-fee');
+const confirmProperty = document.querySelector('.confirm-property');
+const propertyRed = document.querySelector('.property-red');
+const lockboxCode = document.getElementById('lockbox-code');
+const describeOther = document.getElementById('describe-other');
+
+confirmProperty.addEventListener('click', confirmPropertyFunction);
+
+zip.addEventListener('input', restrictToNumbers);
+yearBuilt.addEventListener('input', restrictToNumbers);
+price.addEventListener('input', restrictToNumbers);
+footage.addEventListener('input', restrictToNumbers);
+
+function restrictToNumbers() {
+    const zipVal = zip.value;
+    const zipNumeric = zipVal.replace(/[^0-9]/g, '');
+    zip.value = zipNumeric;
+
+    const yearBuiltVal = yearBuilt.value;
+    const yearBuiltNumeric = yearBuiltVal.replace(/[^0-9]/g, '');
+    yearBuilt.value = yearBuiltNumeric;
+
+    const priceVal = price.value;
+    const priceNumeric = priceVal.replace(/[^0-9]/g, '');
+    price.value = priceNumeric;
+
+    const footageVal = footage.value;
+    const footageNumeric = footageVal.replace(/[^0-9]/g, '');
+    footage.value = footageNumeric;
+}
+
+
+function confirmPropertyFunction() {
+    if (address.value === "") {
+        address.classList.add('red');
+    } else {
+        address.classList.remove('red');
+    };
+    if (city.value === "") {
+        city.classList.add('red');
+    } else {
+        city.classList.remove('red');
+    };
+    if (zip.value === "") {
+        zip.classList.add('red');
+    } else {
+        zip.classList.remove('red');
+    };
+    if (yearBuilt.value === "") {
+        yearBuilt.classList.add('red');
+    } else {
+        yearBuilt.classList.remove('red');
+    };
+    if (footage.value === "") {
+        footage.classList.add('red');
+    } else {
+        footage.classList.remove('red');
+    };
+    if (beds.value === "0") {
+        beds.classList.add('red');
+    } else {
+        beds.classList.remove('red');
+    };
+    if (baths.value === "0") {
+        baths.classList.add('red');
+    } else {
+        baths.classList.remove('red');
+    };
+    if (hvac.value === "0") {
+        hvac.classList.add('red');
+    } else {
+        hvac.classList.remove('red');
+    };
+    if (kitchens.value === "0") {
+        kitchens.classList.add('red');
+    } else {
+        kitchens.classList.remove('red');
+    };
+    if (price.value === "") {
+        price.classList.add('red');
+    } else {
+        price.classList.remove('red');
+    };
+
+    if (address.value === ""
+    || city.value === ""
+    || zip.value === ""
+    || yearBuilt.value === ""
+    || footage.value === ""
+    || beds.value === "0"
+    || baths.value === "0"
+    || hvac.value === "0"
+    || kitchens.value === "0"
+    || price.value === "") {
+        propertyRed.style.visibility = "visible";
+    } else {
+        propertyRed.style.visibility = "hidden";
+    };
+
+    if (access.value === "other" && describeOther.value == "") {
+        propertyRed.style.visibility = "visible";
+        describeOther.classList.add('red');
+    } else {
+        propertyRed.style.visibility = "visible";
+        describeOther.classList.remove('red');
+    }
+};
+
+access.addEventListener('input', accessFunction);
+
+function accessFunction() {
+    if (access.value === "lockbox") {
+        lockboxCode.style.display = "inline-block";
+    } else {
+        lockboxCode.style.display = "none";
+    };
+
+    if (access.value === "other") {
+        describeOther.style.display = "inline-block";
+    } else { 
+        describeOther.style.display = "none";
+    };
+};
+
 
 //FEE SECTION
 
