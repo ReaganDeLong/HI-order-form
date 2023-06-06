@@ -142,3 +142,21 @@ h1 {
 #other-authorized-label {
   display: none;
 }
+
+textarea {
+  font-size: 1.2rem;
+  max-width: 50%;
+  height: 100px;
+  max-height: 200px;
+}
+
+.green {
+  border: 3px solid lightgreen;
+}
+
+#lockbox-code {
+  display: inline-block;
+}
+#describe-other {
+  display: none;
+}
