@@ -216,7 +216,7 @@
             </select>
           </label></li>
             <li><label for="price">Sales Price
-              <input type="text" id="price" class="answer" autocomplete="off">
+              <input type="text" id="price" class="answer" autocomplete="off" value="">
             </label></li>
             <li><label for="crawlspace">Crawlspace?
               <select class="answer" id="crawlspace">
@@ -243,10 +243,18 @@
         </div>
 
         <div class="fee">
-          <p>Inspection Fee: </p><span class="inspection-fee"></span>
-          <p>Radon Fee: </p><span class="radon-fee"></span>
-          <p>Additional Area fee: </p><span></span>
-          <p>Total Fee:</p><span class="total-fee"></span>
+          <div>
+          <p class="inspection-fee-label">Inspection Fee: </p><span class="inspection-fee"></span>
+          </div>
+          <div>
+          <p class="radon-label">Radon Fee:</p><span class="radon-fee"></span>
+          </div>
+          <div>
+          <p class="additional-fee-label">Additional Area fee:</p><span class="additional-fee"></span>
+          </div>
+          <div>
+          <p class="total-fee-label">Total Fee:</p><span class="total-fee"></span>
+          </div>
           <button class="override">Override Fee</button>
           <p>Fee override is optional. ONLY use this if price needs to be manually adjusted due to weird circumstances, or if this calculator isn't working correctly. This is the TOTAL fee, so include radon, additional areas, etc.</p>
         </div>
