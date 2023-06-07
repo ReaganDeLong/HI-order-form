@@ -160,3 +160,10 @@ textarea {
 #describe-other {
   display: none;
 }
+
+.inspection-fee-label,
+.inspection-fee,
+.radon-label,
+.radon-fee {
+  display: inline-block;
+}
