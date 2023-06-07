@@ -255,7 +255,23 @@ confirmProperty.addEventListener('click', confirmPropertyFunction);
 zip.addEventListener('input', restrictToNumbers);
 yearBuilt.addEventListener('input', restrictToNumbers);
 price.addEventListener('input', restrictToNumbers);
+price.addEventListener('input', function() {
+    let value = price.value;
+    value = value.replace(/,/g, '');
+    value = addCommas(value);
+    price.value = value;
+});
 footage.addEventListener('input', restrictToNumbers);
+footage.addEventListener('input', function() {
+    let value = footage.value;
+    value = value.replace(/,/g, '');
+    value = addCommas(value);
+    footage.value = value;
+});
+
+function addCommas(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
 
 function restrictToNumbers() {
     const zipVal = zip.value;
@@ -273,7 +289,7 @@ function restrictToNumbers() {
     const footageVal = footage.value;
     const footageNumeric = footageVal.replace(/[^0-9]/g, '');
     footage.value = footageNumeric;
-}
+};
 
 
 function confirmPropertyFunction() {
@@ -370,4 +386,37 @@ function accessFunction() {
 
 
 //FEE SECTION
+const inspectionFeeFinal = document.querySelector('.inspection-fee');
+const radonFeeFinal = document.querySelector('.radon-fee');
+const additionalFeeFinal = document.querySelector('.additional-fee');
+const totalFeeFinal = document.querySelector('.total-fee');
+
+confirmProperty.addEventListener('click', calculateTotal);
+
+function calculateTotal() {
+    let inspectionFee = 350;
+    let radonFee = 0;
+    let addFee = 0;
+    let totalFee = 0;
+    let withoutComma = footage.value.replace(",", "");
+
+    if (footage.value < 1500) {
+        inspectionFee += (withoutComma * 0.04);
+    } else {
+        inspectionFee += (withoutComma * 0.06);
+    };
+    inspectionFeeFinal.innerHTML = "$" + inspectionFee;
+
+    if (radon.value === "yes") {
+        radonFee = 200;
+    } else {
+        radonFee = 0;
+    };
+    radonFeeFinal.innerHTML = "$" + radonFee;
+};
+
+calculateTotal();
+
+
+
 
