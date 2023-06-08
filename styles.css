@@ -151,7 +151,7 @@ textarea {
 }
 
 .green {
-  border: 3px solid lightgreen;
+  border: 5px solid rgb(1, 177, 1);
 }
 
 #lockbox-code {
@@ -166,4 +166,8 @@ textarea {
 .radon-label,
 .radon-fee {
   display: inline-block;
+}
+
+.override-div {
+  visibility: hidden;
 }
