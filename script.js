@@ -1,3 +1,4 @@
+
 //CLIENT INFO SECTION
 
 const confirmClient = document.querySelector('.confirm-client');
@@ -417,6 +418,15 @@ function accessFunction() {
     };
 };
 
+const search = document.querySelector('.google-search');
+search.addEventListener('click', searchFunction);
+function searchFunction(e) {
+    e.preventDefault();
+    let searchTerm = address.value + ' ' + city.value;
+    let searchURL = `https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`;
+    window.open(searchURL, '_blank');
+}
+
 
 //FEE SECTION
 const inspectionFeeFinal = document.querySelector('.inspection-fee');
@@ -458,7 +468,7 @@ function calculateTotal() {
     } else {
         addFee = additionalFee.value;
     };
-    
+
     radonFeeFinal.innerHTML = "$" + radonFee;
 
     additionalFeeFinal.innerHTML = '$' + addFee;
